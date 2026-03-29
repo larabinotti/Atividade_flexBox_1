@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista ELSE IF</title>
+</head>
+
+<body>
+    <h2>Altura e Esportes : Descubra sua vantagem competitiva</h2>
+    <label for="text"><b>Digite sua altura</b></label>
+    <input type="text" id="ipt_altura" placeholder="Ex:1.70"><br><br>
+
+    <button onclick="Analisar()">Analisar estatura</button><br><br>
+
+    <div id="div_msg"></div>
+    <script>
+        function Analisar() {
+            let ax_altura = Number(ipt_altura.value);
+            if (ax_altura < 1.65) {
+                div_msg.innerHTML = 'Você pode ser piloto de corrida'
+
+            }
+
+            else {
+                if (ax_altura < 1.80) {
+                    div_msg.innerHTML = 'Você pode ser jogador de futebol'
+                }
+                else {
+                    div_msg.innerHTML = 'Você pode ser jogador de vôlei ou basquete'
+                }
+            }
+
+        }
+
+
+
+
+
+    </script>
+    <hr>
+
+    <h2>Classe Social em Tuvalu: Em qual Você se encaixa?</h2>
+    <label for="number">Digite sua renda familiar mensal</label><br><br>
+    <input type="number" id="ipt_rendafamiliar"><br><br>
+
+    <button onclick="Analisar2()">Analisar renda</button><br><br>
+
+    <div id=div_msg2></div>
+
+    <script>
+
+        function Analisar2() {
+
+            let ax_renda = Number(ipt_rendafamiliar.value);
+
+            if (ax_renda < 250) {
+                div_msg2.innerHTML = 'Classe E';
+            }
+            else {
+                if (ax_renda < 900) {
+                    div_msg2.innerHTML = 'Classe D';
+                }
+                else {
+                    if (ax_renda < 2500) {
+                        div_msg2.innerHTML = 'Classe C';
+                    }
+                    else {
+                        if (ax_renda < 9500) {
+                            div_msg2.innerHTML = 'Classe B';
+                        }
+                        else {
+                            div_msg2.innerHTML = 'Classe A';
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+    </script>
+
+    <br>
+    <hr>
+
+    <h2>Sensação Térmica: Como o Corpo Humano Percebe a Temperatura</h2>
+    <label for="number">Qual a temperatura?</label><br><br>
+    <input type="number" id="ipt_temp" placeholder="Ex:24°C"><br><br>
+
+    <button onclick="Temperatura()">Analisar temperatura</button><br><br>
+
+    <div id=div_msg3></div>
+
+    <script>
+
+        function Temperatura() {
+            let ax_temperatura = Number(ipt_temp.value);
+
+            if (ax_temperatura < 14) {
+                div_msg3.innerHTML = 'Congelante';
+            }
+            else {
+                if (ax_temperatura < 21) {
+                    div_msg3.innerHTML = 'Com frio';
+                }
+                else {
+                    if (ax_temperatura < 24) {
+                        div_msg3.innerHTML = 'Confortável';
+                    }
+                    else {
+                        if (ax_temperatura < 31)
+                            div_msg3.innerHTML = 'Com calor';
+                        else {
+                            div_msg3.innerHTML = 'Calor escaldante'
+                        }
+
+
+                    }
+                }
+            }
+        }
+
+
+    </script>
+    <hr>
+
+    <h2>Avaliação de Peso Infantil: Está Dentro da Faixa Saudável?</h2>
+    <label for="number">Qual o peso da criança?</label><br><br>
+    <input type="number" id="ipt_peso" placeholder="Ex:70kg"><br><br>
+
+    <button onclick="Peso()"><b>Analisar Peso</b></button><br><br>
+
+    <div id="div_msg4"></div>
+
+    <script>
+
+        function Peso() {
+            let ax_peso = Number(ipt_peso.value);
+
+            if (ax_peso == 18.3) {
+                div_msg4.innerHTML = 'Perfeito'
+            }
+            else {
+                if (ax_peso < 13.5) {
+                    div_msg4.innerHTML = 'Abaixo do peso'
+                }
+                else {
+
+                    if (ax_peso < 21.2) {
+                        div_msg4.innerHTML = 'Peso na média'
+                    }
+                    else {
+                        div_msg4.innerHTML = 'Acima do peso'
+                    }
+
+                }
+            }
+
+
+        }
+
+
+    </script>
+    <br>
+    <hr>
+
+    <h2> Classificação de Alunos: Como Está Seu Desempenho?</h2>
+    <label for="number">Digite sua nota</label>
+    <input type="number" id="ipt_nota"><br><br>
+
+    <button onclick="Nota()">Classificar aluno</button><br><br>
+
+
+    <script>
+        function Nota() {
+            let nota = Number(ipt_nota.value);
+
+            if (nota < 5) {
+                alert('Aluno precisa de muita ajuda')
+            }
+            else {
+                if (nota < 7) {
+                    alert('Aluno na média')
+                }
+                else {
+                    if (nota < 9.5) {
+                        alert('Aluno acima da média')
+                    }
+                    else {
+                        alert('Aluno fora da curva')
+                    }
+                }
+            }
+        }
+    </script>
+    <br>
+    <hr>
+
+    <h2>Consumo de Calorias: Sua Dieta Está Saudável?</h2>
+    <label for="text">Quantos pães você consome por dia?</label><br>
+    <input type="text" id="ipt_pao"><br><br>
+
+    <label for="text">Quantos pacotes de bolacha você consome por dia?</label><br>
+    <input type="text" id="ipt_bolacha"><br><br>
+
+    <label for="text">Quantos copos de achocolatado você consome por dia?</label><br>
+    <input type="text" id="ipt_choco"><br><br>
+
+    <button onclick="Dieta()">Verificar Calorias</button>
+    <br>
+    <div id=div_msg6></div>
+
+    <script>
+
+        function Dieta() {
+            let ax_pão = Number(ipt_pao.value) * 50;
+            let ax_bolacha = Number(ipt_bolacha.value) * 80;
+            let ax_choco = Number(ipt_choco.value) * 70;
+            let total = (ax_pão + ax_bolacha + ax_choco);
+
+            if (total < 200) {
+                div_msg6.innerHTML = 'Parabéns, vai ficar em forma!'
+            }
+            else {
+                if (total < 400) {
+                    div_msg6.innerHTML = 'Cuidado, vai ficar menos saudável!'
+
+                }
+                else {
+                    div_msg6.innerHTML = 'Alerta crítico de saúde!'
+                }
+            }
+
+
+
+
+        }
+
+    </script>
+    <hr>
+
+    <h2> Meta de Economia: Você Está no Caminho Certo?</h2>
+    <label for="number">Qual sua meta de economia?</label>
+    <input type="number" id="ipt_economia">
+    <br>
+    <label for="number">Quanto você tem guardado?</label>
+    <input type="number" id="ipt_guardado">
+    <br>
+    <br>
+    <button onclick="Economia()">Analisar economia</button>
+
+    <div id=div_msg7></div>
+
+    <script>
+        function Economia() {
+            let ax_meta = Number(ipt_economia.value);
+            let ax_guardado = Number(ipt_guardado.value);
+            let ax_ultrapassada = (ax_guardado - ax_meta);
+            let ax_falta = (ax_meta - ax_guardado);
+
+            if (ax_meta == ax_guardado) {
+                div_msg7.innerHTML = 'Parábens, meta alcançada'
+
+            }
+            if (ax_meta < ax_guardado) {
+                div_msg7.innerHTML = `Parabéns meta alcançada <br> Meta ultrapassada em ${ax_ultrapassada}`
+            }
+            if (ax_meta > ax_guardado) {
+                div_msg7.innerHTML = `Força! Ainda em busca da meta! Falta ${ax_falta}`
+
+            }
+        }
+    </script>
+    <br>
+    <hr>
+
+
+    <h2>Índice de Massa Corporal (IMC) </h2>
+    <label for="number">Informe seu peso em kg</label><br>
+    <input type="text" id="ipt_peso1"><br>
+
+    <label for="number">Informe sua altura em metros</label><br>
+    <input type="text" id="ipt_altura1" placeholder="Ex:1.7m"><br>
+
+    <button onclick="IMC()">Calcular IMC</button><br>
+
+    <div id="div_msg8"></div>
+
+    <script>
+        function IMC() {
+            let ax_peso1 = (ipt_peso1.value);
+            let ax_altura1 = (ipt_altura1.value);
+            let ax_total1 = (ax_peso1 / (ax_altura1 ** 2));
+
+            if (ax_total1 < 18.5) {
+                div_msg8.innerHTML = 'Abaixo do peso'
+
+            }
+            else {
+                if (ax_total1 < 24.9) {
+                    div_msg8.innerHTML = 'Peso Normal'
+                } else {
+                    if (ax_total1 < 29.9) {
+                        div_msg8.innerHTML = 'Acima do Peso';
+
+                    } else {
+                        div_msg8.innerHTML = 'Cuidado! Risco de obesidade'
+                    }
+                }
+            }
+        }
+    </script>
+    <br>
+    <hr>
+
+    <h2>Limite de Velocidade</h2>
+    <label for="text">Qual velocidade você estava dirigindo?</label>
+    <input type="number" id="ipt_velocidade" placeholder="Ex:50km/h">
+    <br>
+    <label for="text">Qual o limite permitido na via?</label>
+    <input type="number" id="ipt_limite">
+    <br>
+
+    <button onclick="Verificar()">Verificar</button>
+
+    <div id="div_msg9"></div>
+
+    <script>
+        function Verificar() {
+            let ax_velo = Number(ipt_velocidade.value);
+            let ax_limite = Number(ipt_limite.value);
+
+            if (ax_velo <= ax_limite) {
+                div_msg9.innerHTML = 'Velocidade dentro do limite'
+            } else {
+                if (ax_velo <= 1.2 * ax_limite) {
+                    div_msg9.innerHTML = 'Atenção! Excedendo o limite permitido'
+                } else {
+                    div_msg9.innerHTML = 'Multa Grave!'
+                }
+            }
+        }
+
+    </script>
+
+    <br>
+    <hr>
+
+    <h2>Controle da umidade do ar</h2>
+    <label for="text">Qual a umidade atual no sistema?</label>
+    <br>
+    <input type="text" id="ipt_umi">
+    <br>
+    <button onclick="Umidade()">Verificar Umidade</button>
+    <div id=div_msg10></div>
+    <script>
+        function Umidade() {
+            let ax_umidade = Number(ipt_umi.value);
+            if (ax_umidade < 0 || ax_umidade > 100) {
+                alert("Erro!")
+            } else {
+                if (ax_umidade < 12) {
+                    div_msg10.innerHTML = 'Estado de emergência'
+
+                } else {
+                    if (ax_umidade < 20) {
+                        div_msg10.innerHTML = 'Estado de alerta'
+                    } else {
+                        if (ax_umidade < 30) {
+                            div_msg10.innerHTML = 'Estado de atenção'
+                        }
+                        else {
+                            div_msg10.innerHTML = 'Nenhum risco'
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+    <br>
+    <hr>
+    <h2>Resto da Divisão por 5</h2>
+    <label for="text">Digite um número</label>
+    <input type="text" id="ipt_numero1">
+<br>
+    <button onclick="Multiplo5()">Múltiplo de 5</button>
+
+    <div id="div_msg11"></div>
+
+    <script>
+        function Multiplo5() {
+            let ax_numero = Number(ipt_numero1.value);
+            let ax_resultado = (ax_numero % 5)
+            if (ax_numero < 0) {
+                alert("Digite um número maior que zero")
+            }
+            if (ax_resultado == 0) {
+                div_msg11.innerHTML = 'Perfeito, esse número é múltiplo de cinco'
+
+            } else {
+                if (ax_resultado == 1) {
+                    div_msg11.innerHTML = 'Vich, sobrou 1'
+                } else {
+                    if (ax_resultado == 2) {
+                        div_msg11.innerHTML = 'Para esse o resto é dois'
+                    } else {
+                        if (ax_resultado == 3) {
+                            div_msg11.innerHTML = 'Com mais dois daria certo'
+
+                        } else {
+                            if (ax_resultado == 4) {
+                                div_msg11.innerHTML = 'Só faltou 1 para ser múltiplo de 5'
+                            }
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+    </script>
+
+
+
+</body>
+
+
+</html>

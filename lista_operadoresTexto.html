@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Operações com Textos</title>
+</head>
+
+<body>
+    <h1>Validações de Campos com Métodos de String</h1>
+    <br>
+    <h2>1. Contador de Caracteres</h2>
+    <br>
+Digite um frase: <input type="text" id="ipt_frase">
+<button onclick="Analisar()">Analisar Frase</button>
+<div id= div_msg></div>
+
+</body>
+
+</html>
+<script>
+    function Analisar(){
+        let ax_frase=ipt_frase.value;
+        let ax_tamanho= ax_frase.length;
+        div_msg.innerHTML=`Tamanho da Frase: ${ax_tamanho}<br>`
+
+        if(ax_tamanho<10){
+            div_msg.innerHTML+= 'Frase Curta'
+        } else {
+            div_msg.innerHTML+='Frase Longa'
+        }
+
+    }
+</script>
+<br>
+<hr>
+<h2>2. Detector de Palavras</h2>

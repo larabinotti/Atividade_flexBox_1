@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+    <h1>Guerreiros do Dragon Ball</h1>
+    <select id="sel_guerreiros"><br>
+        <option value="0">selecione...</option>
+        <option value="1">Gohan</option>
+        <option value="2">Freeza</option>
+        <option value="3">Goku</option>
+        <option value="4">Vegeta</option>
+        <option value="5">Broly</option>
+        <option value="6">Jiren</option>
+        <option value="7">Granolah</option>
+    </select>
+    <br><br>
+    Informe a força do guerreiro <input type="number" id="ipt_força">
+    <br>
+    <br>
+    <button onclick="Registrar()">Registrar</button>
+    <button onclick="Exibir()">Resultado</button>
+    <div id="div_msg"></div>
+
+
+</body>
+<script>
+    let ax_guerreiros = sel_guerreiros.value;
+    function Registrar() {
+        let ax_lista = [ax_guerreiros.indexOf];
+    }
+
+    function Exibir() {
+        let ax_lista = [ax_guerreiros.indexOf];
+        let ax_força = Number(ipt_força.value);
+        if (ax_força < 1 || ax_força > 99) {
+            alert('Insira a força dentro do intervalo de 1 a 99')
+
+        } else {
+            if (ax_guerreiros.startsWith == 'G' || ax_guerreiros.startsWith == 'g'){
+                ax_força * 70
+            } else{
+                ax_força * 50
+            }
+         } 
+
+         if((ax_força * 70 >=1000 && ax_força * 70<=2000))|| ((ax_força * 50>=1000 && ax_força * 50<=2000)){
+            
+         }  
+    }
+
+
+</script>
+
+</html>

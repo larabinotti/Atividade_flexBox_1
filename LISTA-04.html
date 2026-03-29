@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 4</title>
+</head>
+<body>
+    <h1>Permissão para festa</h1>
+    <label for="idade">Idade Usuário</label>
+    <input type="number" id="IdadeUsuario" placeholder="Digite sua idade">
+
+<button onclick= "festa()"> Ir pra festa</button>
+
+    <script>
+
+ if ("idade"<=18) {
+alert ("Pedir permissão pro responsável");}
+
+if ("idade">=18) {
+alert ("#partiuFesta");
+}
+
+function festa() {
+alert ("#partiufesta");
+
+}
+    </script>
+</body>
+</html>
+
+<br><br>
+<hr>
+
+<h2>Controle de Refrigerante</h2>
+<label for="refrigerantes"> Refrigerantes diários</label>
+<input type="number" id="qtd_refrigerante" placeholder="Quantos refrigerantes você toma diariamente?">
+
+<button onclick="Refri()">Quantos refris?</button>
+ 
+<div id= "resultado_1" ></div>
+<script>
+
+function Refri() {
+getElementById.innerHTML= "qtd_refrigerante";
+var resultado= (qtd_refrigerante * 365);
+resultado_1= `Você consome ${resultado}`;
+
+if (qtd_refrigerante>=500) {
+alert("Cuidado com a diabetes!");
+
+}
+
+}
+
+</script>
+
+<br><br>
+<hr>
+
+<h2>Controle de Notas</h2>
+<label for= "nota_1"><b>nota 1</b></label>
+<input type="number" id="nota_1" placeholder="Informe nota 1">
+
+<label for= "nota_2"><b>nota 2</b></label>
+<input type="number" id="nota_2" placeholder="Informe nota 2">
+
+<label for= "nota_3"><b>nota 3</b></label>
+<input type="number" id="nota_3" placeholder="informe nota 3">
+
+<button onclick="Desempenho()">Analisar desempenho</button>
+
+<div id="resultado_3"></div>
+
+<script>
+function Desempenho() {
+var n1= Number (nota1.value);
+var n2= Number (getElementById.innerHTML.value);
+var n3= Number (getElementById.innerHTML.value);
+
+let resultado = (n1+n2+n3/3);
+
+
+
+<br><br>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+

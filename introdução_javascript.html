@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução a JavaScript</title>
+</head>
+
+<body>
+    <h2>Cadastro de Local e Nascimento</h2>
+    <label for="text">Insira sua cidade natal</label>
+    <input type="text" id="ipt_cidade_natal" placeholder="Ex:São Paulo"><br><br>
+
+    <label for="number">Insira seu Ano de Nascimento</label>
+    <input type="number" id="ipt_ano_nascimento" placeholder="Ex:1990"><br><br>
+
+    <button onclick="Cadastrar()">Cadastrar</button><br><br>
+
+    <script>
+        function Cadastrar() {
+            let cidade_natal = ipt_cidade_natal.value;
+            let ano_nascimento = Number(ipt_ano_nascimento.value);
+
+            alert(`Você nasceu na cidade de ${cidade_natal} em ${ano_nascimento}`);
+        }
+
+    </script>
+    <br>
+    <hr>
+    <h2>Calculadora de Peso e Altura</h2>
+    <label for="number">Insira o valor do seu peso</label>
+    <input type="number" id="ipt_peso" placeholder="Ex:70kg"><br><br>
+
+    <label for="number">Insira o valor da sua altura</label>
+    <input type="number" id="ipt_altura" placeholder="Ex:1.70m"><br><br>
+
+    <button onclick="PesoAltura()"><b>Fale Comigo</b></button><br><br>
+
+
+    <script>
+        function PesoAltura() {
+            let peso = Number(ipt_peso.value);
+            let altura = Number(ipt_altura.value);
+
+            alert(`Você pesa ${peso} kg e tem ${altura} m de altura`);
+
+
+        }
+
+    </script>
+    <br>
+    <hr>
+
+    <h2>Futebol</h2>
+    <label for="text">Inserir o nome do time</label>
+    <input type="text" id="ipt_nometime" placeholder="Ex:Corinthians"><br><br>
+
+    <label for="number">Inserir a quantidade de títulos que o clube possui</label>
+    <input type="number" id="ipt_qtdtitulos"><br><br>
+
+    <button onclick="Time()"><b>Amo meu time</b></button>
+
+    <script>
+        function Time() {
+            let time = ipt_nometime.value;
+            let qtdtitulos = Number(ipt_qtdtitulos.value);
+            alert(`O time ${time} tem ${qtdtitulos} títulos`)
+        };
+
+
+    </script>
+    <br><br>
+    <hr>
+
+    <h2>Opinião da família</h2>
+    <label for="number">Inserir a sua nota na escola</label>
+    <input type="number" id="ipt_nota"><br>
+    <br>
+    <button onclick="Opiniao1()">Opinião da avó</button><br><br>
+    <button onclick="Opiniao2()">Opinião da mãe</button><br><br>
+
+    <div id="msg_tela"></div>
+
+    <script>
+        function Opiniao1() {
+            let nota = Number(ipt_nota.value);
+            msg_tela.innerHTML = `Muito bem, que neto inteligente, porque tirou ${nota}`;
+
+        }
+
+        function Opiniao2() {
+            let nota = Number(ipt_nota.value);
+            msg_tela.innerHTML = `Não fez mais que a tua obrigação com essa nota ${nota}`;
+
+
+        }
+
+
+
+    </script>
+    <br><br>
+    <hr>
+
+    <h2>Farol</h2>
+
+    <button onclick="Pare()"><b>Pare</b></button>
+    <button onclick="Pense()"><b>Pense</b></button>
+    <button onclick="Siga()"><b>Siga</b></button>
+    <br>
+    <div id="msg_tela1"></div>
+
+
+    <script>
+
+        function Pare() {
+            msg_tela1.innerHTML = `Pare e Aguarde!`
+
+        }
+
+        function Pense() {
+            msg_tela1.innerHTML = `Pense se pode seguir ou se deve parar!`
+
+        }
+
+        function Siga() {
+            msg_tela1.innerHTML = `Pode seguir adiante`
+
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h2>Cadastro de Pet</h2>
+    <label for="text">Insira o nome do seu pet</label>
+    <input type="text" id="ipt_pet">
+    <br>
+    <label for="text">Insira a espécie do seu pet</label>
+    <input for="text" id="ipt_especie">
+    <br><br>
+    <button onclick="Pet()">Identificar Pet</button><br><br>
+
+    <script>
+
+
+        function Pet() {
+            let nome_pet = ipt_pet.value;
+            let especie_pet = ipt_especie.value;
+            alert(`O seu pet se chama ${nome_pet} e ele é um ${especie_pet}`)
+
+
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h2>Sistema de Cinema</h2>
+
+    <label for="text">Insira o nome do filme</label>
+    <input type="text" id="ipt_nomefilme" placeholder="Ex:Wicked">
+    <br><br>
+    <label for="number">Insira o horário da sessão</label>
+    <input type="number" id="ipt_horario">
+    <br><br>
+    <button onclick="Cinema()">Confirmar ingresso</button>
+    <br><br>
+    <div id="msg_tela2"></div>
+
+    <script>
+        function Cinema() {
+            let nomefilme = ipt_nomefilme.value;
+            let horario = Number(ipt_horario.value);
+
+            msg_tela2.innerHTML = `Ingresso confirmado para o filme ${nomefilme} no horário ${horario}`;
+
+        }
+
+
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h2>Recomendação de Clima</h2>
+    <label for="number">Insira a temperatura atual</label>
+    <input type="number" id="ipt_temp" placeholder="Ex:26°C">
+    <br>
+    <label for="text">Insira a condição do tempo</label>
+    <input type="text" id="ipt_cond" placeholder="Ex:Ensolarado">
+    <br>
+    <br>
+    <button onclick="Temperatura()">Ver Dica</button>
+    <br>
+
+    <script>
+        function Temperatura() {
+            let temperatura = Number(ipt_temp.value);
+            let condiçãoTemp = ipt_cond.value;
+
+            alert(`Está fazendo ${temperatura} e o dia está ${condiçãoTemp}`);
+
+        }
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h2>Contador de Passos</h2>
+    <input for="number" id="ipt_distPercorrida"><br>
+    <input type="number" id="ipt_temp"><br>
+
+    <button onclick="Calculo()">Finalizar treino</button>
+
+    <script>
+        function Calculo() {
+            let distancia = Number(ipt_distPercorrida.value);
+            let tempogasto = Number(ipt_temp.value);
+
+            alert(`Você percorreu ${distancia} hoje!`);
+
+            alert(`O seu tempo total de exercício foi de ${tempogasto} minutos`);
+        }
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

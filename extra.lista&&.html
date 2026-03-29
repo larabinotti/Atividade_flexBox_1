@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra</title>
+</head>
+
+<body>
+    <label for="text">Informe o seu nome</label><br>
+    <input type="text" id="ipt_nome">
+    <br>
+    <br>
+    <label for="text">Distância do local atual para o destino do passageiro</label><br>
+    <input type="text" id="ipt_distancia" placeholder="em km">
+    <br>
+    <br>
+    <label for="text">Informe a bandeira de corrida</label><br>
+    <input type="text" id="ipt_bandeira">
+    <br>
+    <br>
+    <label for="text">Informe o horário da corriida</label><br>
+    <input type="text" id="ipt_horario">
+    <br>
+    <br>
+    <button onclick="Calcular()">Calcular corrida</button>
+    <div id="div_msg"></div>
+
+    <script>
+         let resultado = 0
+        function Calcular() {
+            let ax_nome = ipt_nome.value;
+            let ax_dist = Number(ipt_distancia.value);
+            let ax_band = Number(ipt_bandeira.value);
+            let ax_horario = Number(ipt_horario.value);
+            let valor = (ax_dist * 1.25);
+           
+
+            if(ax_band == 1 || ax_band==2 || ax_band==3) {
+
+            if (ax_band == 1 && (ax_horario>=0 && ax_horario<=23)) {
+                if (ax_horario >= 0 && ax_horario <= 6) {
+                    resultado = (valor + valor * 0.05)
+
+                } else {
+                    if (ax_horario >= 5 && ax_horario <= 12) {
+                        resultado = (valor + valor * 0.1);
+                    } else {
+                        if (ax_horario >= 13 && ax_horario <= 23) {
+                            resultado = (valor + valor * 0.15)
+                        }
+                    }
+                }
+
+            }
+        }
+        if (ax_band == 2 &&(ax_horario>=0 && ax_horario<=23)) {
+            if (ax_horario >= 0 && ax_horario <= 6) {
+                resultado = (valor + valor * 0.1)
+            } else {
+                if (ax_horario >= 7 && ax_horario <= 12) {
+                    resultado = (valor + valor * 0.2)
+                } else {
+                    if (ax_horario >= 13 && ax_horario >=23) {
+                        resultado = (valor + valor * 0.3)
+                    }
+                }
+            }
+        }
+        if (ax_band == 3 &&(ax_horario>=0 && ax_horario<=23)) {
+            if (ax_horario >= 0 && ax_horario <= 6) {
+                resultado = (valor + valor * 0.15)
+            } else {
+                if (ax_horario >= 7 && ax_horario <= 12) {
+                    resultado = (valor + valor * 0.30)
+                } else {
+                    resultado = (valor + valor * 0.45)
+                }
+            }
+        } 
+
+        div_msg.innerHTML= `Olá ${ax_nome} Sua corrida, será na bandeira ${ax_band}, percorrerá ${ax_dist} km e o total da corrida será de ${resultado}`
+else{ 
+    alert("Bandeira inavlida!")
+
+}
+    } 
+    
+    </script>
+    
+   
+
+</body>
+
+</html>

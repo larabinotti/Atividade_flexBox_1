@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Sprint 2</title>
+</head>
+
+<body>
+    <h1>Controle de faturamento do dia</h1>
+    <h5>Família Osag</h5>
+    <label for="text">Informe o combústivel vendido?</label><br>
+    <input type="text" id="ipt_combustivel">
+    <br>
+    <br>
+    <label for="text">Qual foi a quantidade vendida?</label><br>
+    <input type="text" id="ipt_qtd">
+    <br>
+    <br>
+    <label for="text">Hora da venda</label><br>
+    <input type="text" id="ipt_hora">
+    <br>
+    <br>
+    <div id="div_resultado"></div>
+
+    <button onclick="Faturamento()">Relatório</button>
+    <br>
+    <br>
+    <button onclick="EncerrarDia()">Encerrar o dia</button>
+    <script>
+        let venda = 0
+        let totalRecebido = 0
+        let totalDesconto = 0
+        let qtdGasolina = 0
+        let qtdEtanol = 0
+        let qtdDiesel = 0
+        function Faturamento() {
+            let ax_comb = ipt_combustivel.value;
+            let ax_qtd = Number(ipt_qtd.value);
+            let ax_hora = Number(ipt_hora.value);
+            let faturamento = 0
+            let desconto = 0
+
+
+
+            if (ax_comb == "gasolina") {
+                faturamento = ax_qtd * 6.49;
+            } else {
+                if (ax_comb == "etanol") {
+                    faturamento = ax_qtd * 4.44;
+                } else {
+                    if (ax_comb == "diesel") {
+                        faturamento = ax_qtd * 4.39;
+                    }
+                }
+            }
+            if (ax_qtd >= 20 && (ax_hora >= 21 || ax_hora <= 6)) {
+
+                if (ax_comb == "gasolina") {
+                    desconto = faturamento * 0.0505
+                } else if (ax_comb == "etanol") {
+                    desconto = faturamento * 0.048
+                } else if (ax_comb == "diesel") {
+                    desconto = faturamento * 0.0303
+                }
+
+            }
+
+            let valorRecebido = faturamento - desconto
+            venda = venda + 1
+            totalRecebido = totalRecebido + valorRecebido
+            totalDesconto = totalDesconto + desconto
+
+            div_resultado.innerHTML += `
+    Venda ${venda}ª – Valor Recebido = R$ ${valorRecebido.toFixed(2)} 
+     Desconto Concedido = R$ ${desconto.toFixed(2)} 
+    Acumulado dos Recebimentos = R$ ${totalRecebido.toFixed(2)} 
+    Acumulado dos Descontos = R$ ${totalDesconto.toFixed(2)}<br>
+    `
+        }
+
+    </script>
+    <!--PARTE 2-->
+    <script>
+    function EncerrarDia(){
+
+let totalLitros = qtdGasolina + qtdEtanol + qtdDiesel
+
+let percGasolina = (qtdGasolina / totalLitros) * 100
+let percEtanol = (qtdEtanol / totalLitros) * 100
+let percDiesel = (qtdDiesel / totalLitros) * 100
+
+div_resultado.innerHTML = ""
+
+div_resultado.innerHTML = `
+<h3>Resumo do Faturamento</h3>
+
+Valor Total Recebido = R$ ${totalRecebido.toFixed(2)} <br>
+Valor Total dos Descontos = R$ ${totalDesconto.toFixed(2)} <br><br>
+
+Quantidade de Gasolina Vendida = ${qtdGasolina.toFixed(2)} litros == ${percGasolina.toFixed(1)} % <br>
+Quantidade de Etanol Vendida = ${qtdEtanol.toFixed(2)} litros == ${percEtanol.toFixed(1)} % <br>
+Quantidade de Diesel Vendida = ${qtdDiesel.toFixed(2)} litros == ${percDiesel.toFixed(1)} %
+`
+
+ipt_combustivel.value = ""
+ipt_qtd.value = ""
+ipt_hora.value = ""
+
+venda = 0
+totalRecebido = 0
+totalDesconto = 0
+qtdGasolina = 0
+qtdEtanol = 0
+qtdDiesel = 0
+
+}
+
+</script>
+<!--ESSA PARTE NÃO FUNCIONOU OS CÁLCULOS CORRETAMENTE, DEPOIS TIRAREI AS DÚVIDAS :)
+
+</body>
+
+
+</html>

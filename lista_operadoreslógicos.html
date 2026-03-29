@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 5</title>
+</head>
+
+<body>
+    <h1>Lista de Exercícios</h1>
+    <br>
+    <h2>Juliane Joada e Suas Frutas Preferidas</h2>
+    <label for="text">Qual fruta chegou a mesa?</label>
+    <input type="text" id="ipt_fruta">
+    <br>
+    <br>
+    <button onclick="Fruta()">Vai comer </button>
+    <script>
+        function Fruta() {
+            let ax_fruta = ipt_fruta.value;
+            if (ax_fruta == "uva" || ax_fruta == "abacaxi") {
+                alert(`Sim, vai comer ${ax_fruta}`)
+            } else {
+                alert(`A fruta ${ax_fruta}, ela não come`)
+            }
+        }
+
+    </script>
+    <br>
+    <br>
+    <hr>
+
+    <h2>Processo Seletivo Mentes Brilhantes</h2>
+    <label for="text">Informe sua nota do ENEM</label><br>
+    <input type="text" id="ipt_enem">
+    <br>
+    <br>
+    <label for="text">Informe sua nota no <b>Vestibular interno</b></label><br>
+    <input type="text" id="ipt_vest_int">
+    <br>
+    <br>
+    <button onclick="Nota()">Avaliação</button>
+
+    <script>
+        function Nota() {
+            let ax_enem = Number(ipt_enem.value);
+            let ax_vest_int = Number(ipt_vest_int.value);
+            if (ax_enem >= 800 || ax_vest_int >= 700) {
+                alert("Parabéns! Aprovado")
+            } else {
+                alert("Tente semestre que vem!");
+            }
+        }
+    </script>
+    <br>
+    <br>
+    <hr>
+    <h2>Auxílio Emergencial Covid-19</h2>
+    <label for="text">Informe sua renda individual</label><br>
+    <input type="number" id="ipt_renda">
+    <br>
+    <label for="text">Informe a sua renda familiar</label><br>
+    <input type="number" id="ipt_rendafml">
+    <br>
+    <br>
+    <button onclick="Covid19()">Terei o auxílio</button>
+    <div id=div_msg></div>
+    <script>
+        function Covid19() {
+            let ax_rendausuario = Number(ipt_renda.value);
+            let ax_rendafamiliar = Number(ipt_rendafml.value);
+            if (ax_rendausuario <= 2000 && ax_rendafamiliar <= 3000) {
+                div_msg.innerHTML = "Você terá direito ao auxílio"
+            } else {
+                div_msg.innerHTML = "Sem direito ao auxílio"
+
+            }
+        }
+    </script>
+    <br>
+    <br>
+    <hr>
+    <h2>Análise de Parcelamento de Compra</h2>
+    <label for=text>Qual o modo de pagamento?</label>
+    <input type="text" id="ipt_pag">
+    <br>
+    <label for="text"><b>Informe se é Dinheiro,Cartão de débito ou crédito, ou Boleto Bancário></b></label>
+    <div id="div_msg1"></div>
+    <br>
+    <button onclick="Analise()">Analisar Compra</button>
+    <script>
+        function Analise() {
+            let ax_pag = ipt_pag.value;
+            if (ax_pag == "dinheiro" || ax_pag == "débito") {
+                div_msg1.innerHTML = "Você terá que pagar a vista"
+
+            } else {
+                if (ax_pag == "crédito" || ax_pag == "Boleto") {
+                    div_msg1.innerHTML = "Pagamento poderá ser parcelado"
+                }
+            }
+        }
+    </script>
+    <br>
+    <br>
+    <hr>
+    <h2>Alerta de Desconforto Térmico</h2>
+    <label for="number">Qual a temperatura atual?</label><br>
+    <input type="number" id="ipt_temp" placeholder="Ex:24°C">
+    <br>
+    <button onclick="Temperatura()">Analisar clima</button>
+
+    <script>
+        function Temperatura() {
+            let ax_temp = Number(ipt_temp.value)
+            if (ax_temp >= 21 && ax_temp <= 24) {
+                alert("Temperatura confortável");
+            }
+
+            else if (ax_temp < 21) {
+                alert("Alerta de desconforto!");
+                alert("As pessoas vão ter hipotermia");
+            }
+
+            else if (ax_temp > 24) {
+                alert("Alerta de desconforto!");
+                alert("As pessoas vão derreter");
+            }
+        }
+
+
+    </script>
+    <h2> Calculadora de Cansaço do Aluno SPTech</h2>
+<h4>Calculadora de cansaço do aluno SPTech</h4>
+<label for="text">Meios de transporte</label>
+<input type="text" id="ipt_"
+</body>
+
+</html>

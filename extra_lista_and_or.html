@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Lista AND/OR</title>
+</head>
+
+<body>
+    <h1>Lista AND/OR EXTRA 3</h1>
+    <br>
+    <br>
+    <h3>Sistema de Recompensas</h3>
+    <b>Insira a quantidade de produtos:</b> <input type="number" id="ipt_quantidade_produtos"><br><br>
+    <b>Insira o total gasto em reais:</b> <input type="number" id="ipt_valor_total"><br>
+    <br>
+    <b>Você é um cliente VIP?</b> <input type="checkbox" id="check_cliente_vip"><br><br>
+
+    <button onclick="Calcular()">Calcular</button>
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+<script>
+    let desconto = 0;
+    let pontos = 0;
+    function Calcular() {
+        let ax_qtdProd = Number(ipt_quantidade_produtos.value);
+        let ax_valorTotal = Number(ipt_valor_total.value);
+        let ax_clienteVip = check_cliente_vip.checked;
+
+        //zerando variáveis globais
+        desconto=0;
+        pontos=0;
+
+        calcularDesconto(ax_qtdProd, ax_valorTotal, ax_clienteVip);
+        calcularPontos(ax_qtdProd, ax_valorTotal, ax_clienteVip);
+
+       
+        div_msg.innerHTML = `
+    Desconto total:${desconto}%<br>
+    Pontos de recompensa: ${pontos}`;
+    }
+
+    // calculando os descontos
+
+    function calcularDesconto(ax_qtdProd, ax_valorTotal, ax_clienteVip) {
+        
+        if (ax_qtdProd > 10 && ax_valorTotal > 1000 && ax_clienteVip) {
+            desconto += 15;
+        }
+        if ((ax_qtdProd > 10 && ax_valorTotal> 500) || ax_clienteVip) {
+            desconto += 10;
+        }
+
+        if ((ax_qtdProd >= 6 && ax_valorTotal >= 10 || ax_clienteVip)) {
+            desconto += 5;
+        }
+    }
+
+    // calculando os pontos
+    function calcularPontos(ax_qtdProd, ax_valorTotal, ax_clienteVip) {
+        
+        if (ax_qtdProd > 5) {
+
+            if ((ax_qtdProd > 5 && ax_valorTotal > 200) || ax_clienteVip) {
+                pontos += 50;
+            }
+
+            if (ax_valorTotal > 500 && ax_qtdProd > 10) {
+                pontos += 100;
+            }
+
+        }
+    }
+</script>

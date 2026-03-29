@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo da Calculadora</title>
+
+</head>
+<body>
+    Informe a área (m²):
+<input type="number" id="ipt_area">
+<br><br>
+
+<button onclick="calcular('eco')">Econômico</button>
+<button onclick="calcular('rec')">Recomendado</button>
+<button onclick="calcular('pre')">Premium</button>
+
+<br><br>
+
+<div id="resultado"></div>
+<div id="resultado2"></div>
+
+<script>
+function calcular(plano) {
+
+    let area = Number(ipt_area.value);
+
+    let sensores = area / 314;
+
+    if (sensores < 1) {
+        sensores = 1;
+    }
+
+    sensores = Number(sensores.toFixed(0));
+
+    let preco = 0;
+    let nome = "";
+
+    if (plano == 'eco') {
+        preco = 135;
+        nome = "Econômico";
+    } 
+    else if (plano == 'rec') {
+        preco = 165;
+        nome = "Recomendado";
+    } 
+    else {
+        preco = 200;
+        nome = "Premium";
+    }
+
+    let total = sensores * preco;
+
+    resultado.innerHTML = `Para garantir a proteção da sua plantação, são necessários ${sensores} sensores`
+
+    resultado2.innerHTML = `Você selecionou o plano ${nome}, e o valor total do investimento é de R$ ${total} reais`
+}
+</script>
+
+
+    
+</body>
+</html>

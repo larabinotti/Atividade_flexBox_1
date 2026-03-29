@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="Pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista AND/OR</title>
+</head>
+
+<body>
+    <h1>Lista de Exercícios</h1>
+    <h2>Sistema de Avaliação de Atendimento: Dê Sua Nota! </h2>
+    <label for="number">Que nota você dá ao nosso atendimento</label>
+    <input type="number" id="ipt_nota">
+    <button onclick="Validar()">Avaliar Atendimento</button><br><br>
+    <div id="div_msg"></div>
+    <script>
+        function Validar() {
+            let ax_nota = Number(ipt_nota.value);
+            if (ax_nota >= 0 || ax_nota <= 10) {
+                if (ax_nota < 0 && ax_nota > 10) {
+                    div_msg.innerHTML = "Nota Válida"
+                } else {
+                    if (ax_nota >= 0 && ax_nota < 5) {
+                        div_msg.innerHTML = "Não Aprovado"
+                    } else {
+                        if (ax_nota >= 5 && ax_nota <= 6) {
+                            div_msg.innerHTML = "Neutro"
+                        } else {
+                            div_msg.innerHTML = "Aprovado"
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

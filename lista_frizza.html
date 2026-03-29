@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Operadores Lógicos</title>
+</head>
+
+<body>
+    <h1>Lista de Exercícios</h1>
+    <h2> Conforto Térmico: A Temperatura Está Ideal? </h2>
+    <label for="text">Qual a temperatura atual?</label><br><br>
+    <input type="text" id="ipt_temp" placeholder="Ex: 24°C">
+
+    <button onclick="Temperatura()">Ver situação</button><br>
+    <script>
+        function Temperatura() {
+            let ax_temp = Number(ipt_temp.value)
+            if (ax_temp >= 21 && ax_temp <= 24) {
+                alert("Temperatura Confortável!")
+            } else {
+                alert("Temperatura desconfortável!")
+            }
+        }
+    </script>
+    <br>
+    <hr>
+    <h2>Auxílio Covid-19: Você Tem Direito ao Benefício?</h2>
+    <label for="text">Informe sua renda</label>
+    <input type="text" id="ipt_renda">
+    <br><br>
+    <label for="text">Informe a renda total familiar</label>
+    <input type="text" id="ipt_rendafml">
+    <br>
+    <br>
+    <button onclick="Renda()">Verificar Ajuda</button>
+
+    <script>
+        function Renda() {
+            let ax_rendausuario = Number(ipt_renda.value)
+            let ax_rendafamiliar = Number(ipt_rendafml.value)
+
+            if (ax_rendausuario <= 1050 && ax_rendafamiliar <= 2100) {
+                alert("Você terá direito!")
+            } else {
+                alert("Você NÃO terá direito!")
+            }
+        }
+    </script>
+    <br>
+    <br>
+    <hr>
+
+    <h2> Validação de Notas: Seu Resultado é Aceitável?</h2>
+    <label for="text">Informe sua nota</label>
+    <input type="text" id="ipt_nota">
+    <br>
+    <br>
+    <button onclick="Nota()">Avaliar aluno</button>
+
+    <script>
+        function Nota() {
+            let ax_nota = Number(ipt_nota.value)
+            if (ax_nota >= 0 && ax_nota <= 10) {
+                alert("Nota válida")
+            } else {
+                alert("Onde já se viu nota menor que 0 e maior que 10?!")
+            }
+        }
+    </script>
+    <br>
+    <br>
+    <hr>
+
+    <h2>Melhor Horário para Assistir Netflix: Evite Travamentos!</h2>
+    <label for="text"> Que horas que você assiste a Netflix?</label>
+    <input type="text" id="ipt_netflix">
+    <br>
+    <br>
+    <button onclick="Netflix()">Ver recomendação</button>
+
+    <script>
+        function Netflix() {
+            let ax_hora = Number(ipt_netflix.value)
+            if (ax_hora >= 19 && ax_hora <= 21) {
+                alert(`Não é recomendável que você assista sua série favorita no horário ${ax_hora}`)
+            } else {
+                alert(`O horário ${ax_hora} é adequado para assistir sua série favorita!`)
+            }
+        }
+    </script>
+
+    <br>
+    <br>
+    <hr>
+    <h2> Desempenho Escolar: Como Está Sua Nota?</h2>
+    <label for="text">Informe sua nota</label>
+    <input type="text" id="ipt_not">
+    <br>
+    <br>
+    <button onclick="Avaliar()">Avaliar aluno</button>
+
+    <script>
+        function Avaliar() {
+            let ax_notaa = (ipt_not.value)
+            if (ax_notaa < 6) {
+                alert("Aluno não aprovado")
+            } else {
+                if (ax_notaa >= 8.5 && ax_notaa <= 10) {
+                    alert("Aluno Exemplar!")
+                } else {
+                    if (ax_notaa >= 6 && ax_notaa < 8.5) {
+                        alert("Aluno comum e aprovado")
+                    }
+                }
+            }
+        }
+
+    </script>
+    <br>
+    <br>
+    <hr>
+
+    <h2>Aprovação Escolar: Notas e Frequência Fazem a Diferença!</h2>
+
+
+    <label>Digite a nota do aluno:</label><br>
+    <input type="number" id="ipt_nota2"><br><br>
+
+    <label>Digite a frequência do aluno (%):</label><br>
+    <input type="number" id="ipt_freq"><br><br>
+
+    <button onclick="avaliar()">Avaliar aluno</button>
+
+    <script>
+        function avaliar() {
+            let nota2 = Number(ipt_nota2.value);
+            let frequencia = Number(ipt_freq.value);
+
+            if (nota2 >= 6 && frequencia >= 75) {
+                alert("Parabéns! Aprovado!");
+            } else {
+                alert("Infelizmente, não foi desta vez");
+            }
+        }
+    </script>
+    <br>
+    <br>
+    <hr>
+
+    <h2>Sistema de Login: Autentique-se para Acessar!</h2>
+    <label for="text">Insira seu login</label><br>
+    <input type="text" id="ipt_login">
+    <br>
+    <br>
+    <label for="text">Insira sua senha</label><br>
+    <input type="password" id="ipt_senha">
+    <br>
+    <br>
+    <button onclick="Login()">Entrar</button>
+    <script>
+        function Login() {
+            let ax_login = ipt_login.value;
+            let ax_senha = ipt_senha.value;
+
+            if (ax_login == "SPtech" && ax_senha == "digital") {
+                alert("Usuário autenticado com sucesso");
+
+            } else {
+                alert("Falha na autenticação")
+            }
+
+        }
+
+    </script>
+    <br>
+    <br>
+    <hr>
+    <h2> Login Seguro: Verificação em Duas Etapas!</h2>
+    <label for="text">Insira seu login</label><br>
+    <input type="text" id="ipt_login2">
+    <br>
+    <br>
+    <label for="text">Insira sua senha</label><br>
+    <input type="password" id="ipt_senha2">
+    <br>
+    <br>
+
+    <label for="text">Insira seu código de segurança</label><br>
+    <input type="password" id="ipt_cod" placeholder="Apenas 3 digitos">
+
+    <br>
+    <br>
+    <button onclick="Login2()">Entrar</button>
+    <script>
+        function Login2() {
+            let ax_login2 = ipt_login2.value;
+            let ax_senha2 = ipt_senha2.value;
+            let ax_cod = ipt_cod.value;
+            if (ax_login2 == "SPTech" && ax_senha2 == "digital" && ax_cod == '123') {
+                alert("Usuário autenticado com sucesso")
+            } else {
+                alert("Falha na autenticação")
+            }
+        } 
+    </script>
+    <br>
+    <br>
+    <hr>
+    <h2>9. Seleção de Pilotos: Você Tem a Altura Ideal?</h2>
+    <label for="text">Informe altura inicial desejada</label>
+    <input type="text" id="ipt_alti">
+    <br><br>
+    <label for="text">Informe altura final desejada</label>
+    <input type="text" id="ipt_altf">
+    <br>
+    <br>
+    <label for="text">Informe seu nome</label>
+    <input type="text" id="ipt_nome1">
+    <br>
+    <br>
+    <label for="text">Informe sua altura</label>
+    <input type="text" id="ipt_alt">
+    <br>
+    <br>
+    <button onclick="Altura()">Verificar Candidato</button>
+    <div id="div_msg"></div>
+    <script>
+
+        function Altura() {
+            let alturainicial = Number(ipt_alti.value);
+            let alturafinal = Number(ipt_altf.value);
+            let nomecandidato = ipt_nome1.value;
+            let alturacandidato = Number(ipt_alt.value);
+
+            if (alturainicial <= 1 || alturafinal <= alturainicial) {
+                alert("Intervalo da altura de seleção é inválida! A altura inicial deve ser maior que 1 e a altura final deve ser maior que a altura inicial");
+            }
+            else {
+
+
+                if (alturacandidato >= alturainicial && alturacandidato <= alturafinal) {
+                    div_msg.innerHTML += `O candidato ${nomecandidato}, com altura de ${alturacandidato} metros, participará do processo de seleção de piloto <br>`;
+                }
+                else {
+                    div_msg.innerHTML += `Infelizmente, o candidato ${nomecandidato}, com altura de ${alturacandidato} metros, não atende os requisitos da seleção <br>`;
+                }
+
+            }
+        }
+    </script>
+<br>
+<br>
+<hr>
+
+
+
+</body>
+
+</html>

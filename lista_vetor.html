@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Introdução a Vetores</title>
+</head>
+
+<body>
+    <h1>Lista de introdução a vetores</h1>
+    <h3>1. Caça às Frutas: Descubra se está na Lista</h3>
+    Insira o nome de uma fruta <input type="text" id="ipt_fruta">
+    <button onclick="Fruta()">Pesquisar</button>
+    <div id="div_msg"></div>
+
+</body>
+<script>
+    function Fruta() {
+        let ax_fruta = ipt_fruta.value;
+        var ax_lista = ['Maçã', 'Banana', 'Uva', 'Morango', 'Laranja']
+        if (ax_lista.includes(ax_fruta)) {
+            alert(` A fruta ${ax_fruta} existe na lista.`)
+
+        } else {
+            alert(`Não existe a ${ax_fruta} na lista`)
+        }
+    }
+
+
+</script>
+<br>
+<hr>
+<h3>2. Diário de Viagens: Do Primeiro ao Último Destino</h3>
+Insira o destino da sua viagem: <input type="text" id="ipt_viagem"><br>
+<br>
+<button onclick="Adicionar()">Adicionar</button><br>
+<br>
+<button onclick="PrimeiraViagem()">Primeira viagem</button><br>
+<br>
+<button onclick="TerceiraViagem()">Terceira Viagem</button><br>
+<br>
+<button onclick="ÚltimaViagem()">Última viagem</button><br>
+<br>
+<div id=div_msg1></div>
+<script>
+
+    let ax_viagem = [];
+    function Adicionar() {
+        let viagem = ipt_viagem.value;
+        ax_viagem.push(viagem)
+    }
+    function PrimeiraViagem() {
+        if (ax_viagem == ``) {
+            div_msg1.innerHTML = "Ainda não viajou"
+        } else {
+            div_msg1.innerHTML = ax_viagem[0]
+
+        }
+
+    }
+    function TerceiraViagem() {
+        if (ax_viagem.length <= 2) {
+            div_msg1.innerHTML = `${ax_viagem.length[2]}`
+        } else {
+            div_msg1.innerHTML = `${ax_viagem.length}`
+        }
+    }
+
+
+</script>
+
+<h2>6. Lista Viva de Filmes Favoritos</h2>
+Entre ccom o nome do filme: <input id="ipt_filme">
+<button onclick="cadastrar()">Cadastrar</button>
+<div id="div_msg6"></div>
+
+<script>
+    let ax_filmes = []
+    function cadastrar() {
+        ax_nome_filme = ipt_filme.value.trim();
+        if (ax_nome_filme.length == 0) {
+            alert('Por favor digite o nome do filme')
+
+        } else {
+            ax_filmes.push(ax_nome_filme);
+            div_msg6.innerHTML = `Seu filme favorito é: ${ax_filme[0]}`
+
+        } if (ax_filmes.length < 3) {
+            div_msg6.innerHTML = `Seu 3º filme favorito AINDA NÃO EXISTE`
+
+        }
+    }
+</script>
+
+</html>
