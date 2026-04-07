@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Canalytics</title>
+</head>
+
+<body>
+    <h2>Proteja seu Patrimônio</h2>
+    <label>Informe a quantidade de hectares da sua cultura de cana:</label>
+    <br>
+    <input type="number" id="inputAreaHectares">
+    <br><br>
+
+    <label>Informe o perímetro da área da plantação (Em metros):</label>
+    <br>
+    <input type="number" id="inputPerimetroMetros">
+    <br><br>
+
+    <button onclick="calcularInvestimento('trimestral')">Plano Trimestral (Econômico)</button>
+    <button onclick="calcularInvestimento('semestral')">Plano Semestral (Recomendado)</button>
+    <button onclick="calcularInvestimento('anual')">Plano Anual (Premium)</button>
+
+    <br><br>
+
+    <div id="divPatrimonioRisco"></div>
+    <br>
+    <div id="divResultadoInvestimento"></div>
+
+    <script>
+        function calcularInvestimento(tipoPlano) {
+            let areaTotalHectares = Number(inputAreaHectares.value)
+            let perimetroMetros = Number(inputPerimetroMetros.value)
+
+            divPatrimonioRisco.innerHTML = ""
+            divResultadoInvestimento.innerHTML = ""
+
+            if (isNaN(areaTotalHectares) || isNaN(perimetroMetros) || areaTotalHectares <= 0 || perimetroMetros <= 0) {
+                divResultadoInvestimento.innerHTML = "<strong>Erro:</strong> Por favor, insira valores numéricos válidos e maiores que zero para área e perímetro."
+            } else {
+                let valorPlano = 0
+                let nomePlano = ""
+                let planoValido = true
+
+                if (tipoPlano == 'trimestral') {
+                    valorPlano = 135
+                    nomePlano = "Trimestral"
+                } else if (tipoPlano == 'semestral') {
+                    valorPlano = 240
+                    nomePlano = "Semestral"
+                } else if (tipoPlano == 'anual') {
+                    valorPlano = 420
+                    nomePlano = "Anual"
+                } else {
+                    planoValido = false
+                }
+
+                if (planoValido == false) {
+                    divResultadoInvestimento.innerHTML = "<strong>Erro:</strong> Plano selecionado inválido. Por favor, tente novamente clicando nos botões acima."
+                } else {
+                    // Define um valor financeiro fixo (R$ 12.500) como a estimativa de perda para cada hectare queimado.
+                    let valorPrejuizoPorHectare = 12500
+
+                    // Multiplica a área informada pelo prejuízo base. 
+                    // O objetivo dessa variável é criar impacto comercial e mostrar ao cliente o tamanho do risco financeiro.
+                    let patrimonioProtegido = areaTotalHectares * valorPrejuizoPorHectare
+
+                    // Usa o operador de módulo (%) para ver se sobra algum perímetro fora de blocos exatos de 30 metros.
+                    // Considera-se aqui que 30 metros é a capacidade de alcance de cada sensor.
+                    let restoDivisao = perimetroMetros % 30
+
+                    // Pega o perímetro total e retira a sobra para criar um número perfeitamente divisível por 30.
+                    let perimetroSemResto = perimetroMetros - restoDivisao
+
+                    // Calcula a quantidade base de sensores fazendo uma divisão exata.
+                    let quantidadeSensores = perimetroSemResto / 30
+
+                    // Se o resto da divisão foi maior que zero, significa que sobrou um pedaço de terra.
+                    // Nesse caso, o sistema soma 1 sensor extra na conta para garantir cobertura total.
+                    if (restoDivisao > 0) {
+                        quantidadeSensores = quantidadeSensores + 1
+                    }
+
+                    // Trava de segurança: garante que o cálculo nunca resulte em zero. 
+                    // Qualquer perímetro válido exigirá pelo menos 1 equipamento no local.
+                    if (quantidadeSensores < 1) {
+                        quantidadeSensores = 1
+                    }
+
+                    // Define o preço final do projeto multiplicando os sensores necessários pelo valor do plano selecionado.
+                    let custoInvestimento = quantidadeSensores * valorPlano
+
+                    let formatoReais = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
+                    let patrimonioFormatado = formatoReais.format(patrimonioProtegido)
+                    let investimentoFormatado = formatoReais.format(custoInvestimento)
+
+                    divPatrimonioRisco.innerHTML = `<strong>Atenção:</strong> Você possui aproximadamente <strong>${patrimonioFormatado}</strong> em cana-de-açúcar desprotegida e vulnerável a incêndios.`
+                    divResultadoInvestimento.innerHTML = `Para criar uma barreira de proteção no seu perímetro de risco, são necessários <strong>${quantidadeSensores} sensores</strong>.<br><br>Você selecionou o plano <strong>${nomePlano}</strong> e o valor total do investimento para blindar sua fazenda é de apenas <strong>${investimentoFormatado}</strong>.`
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

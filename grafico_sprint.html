@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dois Gráficos</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    .container {
+      display: flex;
+      gap: 30px;
+    }
+
+    canvas {
+      width: 400px !important;
+      height: 300px !important;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Dashboard</h2>
+
+<div class="container">
+  <canvas id="grafico1"></canvas>
+  <canvas id="grafico2"></canvas>
+</div>
+
+<script>
+  
+  new Chart(document.getElementById('grafico1'), {
+    type: 'bar',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      datasets: [
+        {
+          label: 'Temperatura Média',
+          data: [22, 24, 27, 23, 20, 18],
+          backgroundColor: 'red'
+        },
+        {
+          label: 'Umidade Média',
+          data: [90, 89, 93, 87, 88, 82],
+          backgroundColor: 'blue'
+        }
+      ]
+    }
+  });
+
+  new Chart(document.getElementById('grafico2'), {
+    type: 'line',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      datasets: [
+        {
+          label: 'Temperatura Média',
+          data: [22, 24, 27, 23, 20, 18],
+          borderColor: 'red',
+          backgroundColor: 'rgba(255,0,0,0.2)',
+          tension: 0.3
+        },
+        {
+          label: 'Umidade Média',
+          data: [90, 89, 93, 87, 88, 82],
+          borderColor: 'blue',
+          backgroundColor: 'rgba(0,0,255,0.2)',
+          tension: 0.3
+        }
+      ]
+    }
+  });
+</script>
+
+</body>
+</html>

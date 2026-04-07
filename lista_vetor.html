@@ -92,5 +92,66 @@ Entre ccom o nome do filme: <input id="ipt_filme">
         }
     }
 </script>
+<br>
+<hr>
+<h2>3. Relembrando Moradias: Onde Você Já Viveu?</h2>
+Informe o seu bairro: <input type="text" id="ipt_bairro"><br>
+Informe o número do local onde morou: <input type="number" id="ipt_num"><br>
+<br>
+
+<button onclick="Bairro()">Cadastrar Bairro</button>
+<button onclick="Moradia()">Relembrar Moradia</button>
+
+<div id=div_msg2></div>
+
+<script>
+    var lista = []
+    function Bairro() {
+        let ax_bairro = ipt_bairro.value
+        lista.push(ax_bairro);
+    }
+
+    function Moradia() {
+        let ax_numero = Number(ipt_num.value);
+        if (ax_numero <= lista.length) {
+            div_msg2.innerHTML = lista[ax_numero - 1];
+        } else {
+            div_msg2.innerHTML = "Você ainda não morou num " + ax_numero + "º bairro!";
+        }
+    }
+
+
+</script>
+<hr>
+<h2>4. Top Filmes Favoritos: Do Mais Amado ao Menos</h2>
+Informe seus filmes favoritos: <input type="text" id="ipt_filme1"><br>
+<br>
+<button onclick="Filme()">Cadastrar Filme</button>
+<br>
+<button onclick="favoritos()">Ver favoritos</button>
+<br>
+<div id=div_msg3></div>
+
+<script>
+    var filmes = [];
+    
+    function Filme() {
+        let ax_filme1 = ipt_filme1.value;
+        filmes.push(ax_filme1);
+        ipt_filme1.value = "";
+    }
+    function favoritos() {
+        if (filmes.length == 0) {
+        div_msg3.innerHTML = "Nenhum filme cadastrado!";
+    } else {
+        div_msg3.innerHTML="";
+        div_msg3.innerHTML= "Total "+ filmes.length + "<br>"; 
+        div_msg3.innerHTML += "O filme que mais gosta é " + filmes[0] + ".<br>";
+        div_msg3.innerHTML+= "E desses, o que menos gosta é " + filmes[filmes.length - 1];
+    }
+}
+
+    
+</script>
 
 </html>

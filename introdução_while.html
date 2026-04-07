@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista WHILE</title>
+</head>
+
+<body>
+    <h1> Introdução a While</h1>
+    <h2>Expressão de amor</h2>
+    Entre com o nome do seu amor: <input type="text" id="ipt_nome"><br>
+    Entre com o quanto você ama (1-10): <input type="number" id="ipt_vezes"><br>
+
+    <button onclick="expressar()">Expressar amor</button>
+    <div id="div_msg"></div>
+
+    <script>
+        function expressar() {
+            let ax_nome = ipt_nome.value.trim();
+            let ax_vezes = Number(ipt_vezes.value);
+            let ax_erros = '';
+            let ax_contador = 0;
+
+            if (ax_nome.length < 3) { ax_erros += 'Entre com um nome com pelo menos 3 caracteres' };
+
+            if (ax_vezes < 1 || ax_vezes > 10) { ax_erros += 'Entre com a quantidade entre 1 e 10' };
+            if (ax_erros != '') { alert(ax_erros); }
+            else {
+                while (ax_contador < ax_vezes) {
+                    ax_contador = ax_contador + 1
+                    div_msg.innerHTML += `<br> ${ax_contador} - ${ax_nome} eu te amo - lembre sempre disso`;
+
+                }
+
+            }
+        }
+    </script>
+    <br>
+    <hr>
+    <h2>1. Contagem Simples</h2>
+    <button onclick="contar()">Contar</button>
+    <div id=div_msg1></div>
+
+    <script>
+        function contar() {
+            let ax_contador = 0
+            div_msg1.innerHTML += " ";
+            while (ax_contador < 15) {
+                ax_contador = ax_contador + 1
+                div_msg1.innerHTML += `<br> ${ax_contador}`
+
+            }
+        }
+    </script>
+    <br>
+    <hr>
+
+    <h2>Frase Repetitiva</h2>
+    <button onclick="Algoritmos()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id="div_msg2"></div>
+
+    <script>
+        function Algoritmos() {
+            let ax_contador2 = 0
+            div_msg2.innerHTML = +" ";
+            while (ax_contador2 < 7) {
+                ax_contador2 = ax_contador2 + 1;
+                div_msg2.innerHTML += "<br> Algoritmos é legal e díficil";
+            }
+        }
+    </script>
+    <br>
+    <hr>
+
+    <h2>Frase Numerada</h2>
+    <button onclick="Algoritmos2()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id=div_msg3></div>
+    <script>
+        function Algoritmos2() {
+            let ax_contador3 = 0
+            div_msg3.innerHTML = " ";
+            while (ax_contador3 < 7) {
+                ax_contador3 = ax_contador3 + 1;
+                div_msg3.innerHTML += `<br> ${ax_contador3} - Boa Tarde`;
+            }
+        }
+    </script>
+    <br>
+    <hr>
+    <!--exercício 4 já feito-->
+
+    <h2>Corrida de Voltas</h2>
+    Quantas voltas um carro dará numa corrida: <input type="number" id="ipt_volta"><br>
+    <button onclick="Carro()">Iniciar corrida!</button><br>
+    <div id="div_msg5"></div>
+
+    <script>
+        function Carro() {
+            let ax_voltas = Number(ipt_volta.value);
+            let contador = 1
+
+            while (contador <= ax_voltas) {
+                div_msg5.innerHTML += `<br> Carro dando a ${contador}ª volta `
+                contador++
+            }
+            div_msg5.innerHTML += "<br>Corrida Finalizada!"
+        }
+
+    </script>
+    <br>
+    <hr>
+
+
+</body>
+
+<h2>Filtro de Números Cabalísticos</h2>
+<button onclick="Cabalísticos()">Filtrar números Cabalísticos</button>
+<div id=div_msg7></div>
+<script>
+    function Cabalísticos() {
+        let contador = 1
+        div_msg7.innerHTML = ""
+
+        while (contador <= 30) {
+            if (contador != 3 && contador != 4 && contador != 7 && contador != 10 && contador != 12) {
+                div_msg7.innerHTML += `<br>${contador}`
+            }
+
+            contador++
+        }
+
+    }
+
+
+</script>
+<br>
+<hr>
+
+<h2>S2 Pares</h2>
+<button onclick="S2Pares()">S2 Pares</button>
+<div id="div_msg8"></div>
+
+<script>
+    function S2Pares() {
+        let ax_pares = 0;
+        div_msg8.innerHTML = " ";
+
+        while (ax_pares <= 100) {
+            if (ax_pares % 2 == 0) {
+                div_msg8.innerHTML += `<br> ${ax_pares}`
+            }
+            ax_pares++
+        }
+
+
+    }
+
+
+</script>
+<h2>Múltiplos de 5</h2>
+Insira um número: <input type="number" id="ipt_numb">
+<button onclick="Múltiplos()">Adoro múltiplos de 5...</button>
+<div id="div_msg9"></div>
+
+<script>
+    function Múltiplos() {
+        let ax_numb = Number(ipt_numb.value);
+        let ax_contador = ax_numb;
+        div_msg9.innerHTML = "";
+
+        if (ax_numb >= 20 && ax_numb <= 100) {
+            while (ax_contador <= 100) {
+                if (ax_contador % 5 == 0) {
+                    div_msg9.innerHTML += `<br> ${ax_contador}`;
+
+                }
+                ax_contador++
+            }
+        } else {
+            div_msg9.innerHTML = "Digite um número entre 20 e 100!"
+        }
+    } 
+</script>
+<h2>Viva o 7!</h2>
+<input type="text" id="ipt_viva7">
+<button onclick="Viva()">Viva o 7!</button>
+<div id=div_msg10></div>
+
+<script>
+    function Viva() {
+        let ax_numb7 = Number(ipt_viva7.value);
+        let ax_contador = ax_numb7;
+        div_msg10.innerHTML = "";
+
+
+
+
+    }
+</script>
+
+<h2>Pares no Intervalo </h2>
+Digite um número: <input type="number" id="ipt_num1"><br>
+Digite um outro nome: <input type="number" id="ipt_num2"><br>
+
+<button onclick="S2Pares2()">S2 Pares </button>
+
+<div id="div_msg11"></div>
+
+<script>
+    function S2Pares2() {
+        let ax_valor1 = Number(ipt_num1.value)
+        let ax_valor2 = Number(ipt_num2.value)
+        let ax_pares = ax_valor1;
+
+        div_msg11.innerHTML = "";
+        while (ax_pares <= ax_valor2) {
+            if (ax_pares % 2 == 0) {
+                div_msg11.innerHTML += `<br> ${ax_pares}`
+            }
+            ax_pares++
+        }
+
+
+    }
+</script>
+
+<br>
+<hr>
+
+<h2>Tabuada Colorida</h2>
+Qual tabuada você quer ver na tela?
+<select id="sel_tabuada" name="tabuadas">
+    <option value="selecione">Selecione...</option>
+    <option value="2">Tabuada do 2</option>
+    <option value="3">Tabuada do 3</option>
+    <option value="4">Tabuada do 4</option>
+    <option value="5">Tabuada do 5</option>
+    <option value="6">Tabuada do 6</option>
+    <option value="7">Tabuada do 7</option>
+    <option value="8">Tabuada do 8</option>
+    <option value="9">Tabuada do 9</option>
+
+
+</select>
+
+<input type="number" id="ipt_limite">
+<button onclick="Tabuada()">Ver Tabuada</button>
+<div id="div_msg12"></div>
+<script>
+    function Tabuada() {
+        let ax_limite = Number(ipt_limite.value);
+        let ax_tabuada = Number(sel_tabuada.value);
+        let contador = 1;
+        while (contador <= ax_limite) {
+            let resultado = ax_tabuada * contador
+            
+        
+            if (contador % 2 == 0) {
+                div_msg12.innerHTML += `<span style="color:blue">${ax_tabuada} x ${contador} = ${resultado}</span><br>`;
+            } else {
+                div_msg12.innerHTML += `<span style="color:red">${ax_tabuada} x ${contador} = ${resultado}</span><br>`;
+            } contador++;
+        }
+
+
+
+    }
+</script>
+<br>
+<hr>
+<h2>Papagaio Falante</h2>
+Insira um número: <input type="number" id="ipt_n">
+Insira uma frase: <input type="text" id="ipt_frase">
+
+<button onclick="Papagaio()">Papagaio</button>
+<div id="div_msg13"></div>
+
+<script>
+    function Papagaio(){
+        let ax_numero= Number(ipt_n.value);
+        let ax_frase=ipt_frase.value ;
+        let ax_contadorp=1;
+
+        while(ax_contadorp<=ax_numero){
+            div_msg13.innerHTML += `${ax_frase} <br>`;
+            ax_contadorp++
+        } 
+    }
+
+</script>
+<br>
+<hr>
+<!--exercício 13 feito em aula-->
+
+
+
+
+</body>
+
+</html>
